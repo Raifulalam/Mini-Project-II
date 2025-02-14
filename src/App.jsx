@@ -4,15 +4,15 @@ import FeaturesSection from './components/FearuresSection';
 import ReservationSection from './components/ReservationSection';
 import Footer from './components/Footer';
 import './App.css';
+import Header from './components/Header';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
-    <div className="App">
-      <HeroSection />
-      <FeaturesSection />
-      <ReservationSection />
-      <Footer />
-    </div>
+    <>
+      <HomePage />
+      <></>
+    </>
   );
 }
 

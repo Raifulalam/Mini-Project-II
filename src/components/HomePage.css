@@ -1,0 +1,124 @@
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    /* Updated path */
+    background-size: cover;
+    /* Ensures the image covers the container */
+    background-position: center;
+    /* Centers the image */
+    background-image: url('../../public/restro.png');
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 40px;
+    align-items: center;
+    height: 80vh;
+}
+
+
+/* Left Section */
+.left-container {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.left-container h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e88e27;
+    margin-bottom: 15px;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+
+.left-info p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.book-now-btn {
+    padding: 12px 30px;
+    background-color: #2980b9;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 180px;
+}
+
+.book-now-btn:hover {
+    background-color: #3498db;
+}
+
+.book-now-btn:active {
+    background-color: #1d6fa5;
+}
+
+/* Right Section (Image) */
+.right-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container {
+    width: 100%;
+    height: auto;
+    max-width: 550px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+    }
+
+    .left-container {
+        padding-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .left-container h1 {
+        font-size: 2rem;
+    }
+
+    .left-info p {
+        font-size: 1rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .book-now-btn {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .image-container {
+        max-width: 100%;
+    }
+}

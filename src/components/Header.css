@@ -1,0 +1,205 @@
+.header {
+    /* background-color: #ff6347; */
+    background-color: #080808;
+    position: -webkit-sticky;
+    width: 100%;
+    padding: 10px 0;
+    opacity: 0.8;
+
+}
+
+body {
+    position: relative;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 2rem;
+    /* Larger font size for the brand */
+    font-weight: bold;
+    /* Bold text */
+    color: #343a40;
+    padding-left: 10px;
+    /* Dark color for brand */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Spacing between letters for a modern look */
+    transition: color 0.3s ease;
+    text-decoration-line: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.navbar-brand img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+/* Navbar Links */
+.navbar-nav .nav-item {
+    margin-left: 20px;
+    /* Space between nav items */
+}
+
+.navbar-nav .nav-link {
+
+    color: #343a40;
+    /* Dark color for links */
+    font-size: 1.1rem;
+    /* Font size for the links */
+    font-weight: 500;
+    /* Medium font weight */
+    text-transform: capitalize;
+    /* Capitalize nav items */
+    padding: 8px 15px;
+    /* Padding around the links */
+    transition: color 0.3s ease;
+    /* Smooth color transition */
+}
+
+/* Navbar link hover effect */
+.navbar-nav .nav-link:hover {
+    color: #8f4b3fa5;
+    /* Tomato color on hover */
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+/* Active Nav Item */
+.nav-item.active .nav-link {
+    color: #8f4b3fa5;
+    /* Tomato color for active link */
+}
+
+/* Toggler Button */
+.navbar-toggler {
+    border: none;
+    display: none;
+    /* Remove border */
+}
+
+.navbar-toggler-icon {
+    background-color: #343a40;
+    /* Dark color for the toggler icon */
+}
+
+/* Navbar Collapse */
+.navbar-collapse {
+    display: flex;
+    justify-content: center;
+    /* Align items to the right */
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+}
+
+/* Search Form */
+.form-inline {
+    display: flex;
+    justify-content: flex-end;
+    /* Align the search bar to the right */
+    align-items: center;
+}
+
+.form-control {
+    border-radius: 20px;
+    /* Rounded corners for the search input */
+    padding: 0.5rem 1rem;
+    /* Padding for the input */
+    font-size: 1rem;
+    margin-right: 10px;
+    /* Space between input and button */
+    border: 1px solid #ced4da;
+    /* Light gray border */
+}
+
+.form-control:focus {
+    border-color: #ff6347;
+    /* Tomato color border on focus */
+    box-shadow: 0 0 5px rgba(255, 99, 71, 0.5);
+    /* Glow effect on focus */
+}
+
+/* Search Button */
+.btn-outline-success {
+    border-radius: 20px;
+    /* Rounded corners for the button */
+    border: 2px solid #28a745;
+    /* Green border */
+    color: #28a745;
+    /* Green text color */
+    font-size: 1rem;
+    padding: 8px 20px;
+    /* Padding around the button */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition */
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    /* Green background on hover */
+    color: white;
+    /* White text on hover */
+    border-color: #28a745;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+        /* Smaller font size on mobile for brand */
+    }
+
+    .navbar-nav .nav-item {
+        text-align: center;
+        /* Center-align nav items in mobile */
+        margin: 5px 0;
+        /* Add spacing between links on mobile */
+    }
+
+    .form-inline {
+        flex-direction: column;
+        /* Stack the search bar and button vertically on mobile */
+        margin-top: 10px;
+    }
+
+    .form-control {
+        width: 100%;
+        /* Make the input field take full width */
+        margin-bottom: 10px;
+        /* Space between input and button */
+    }
+
+    .btn-outline-success {
+        width: 100%;
+        /* Make the button take full width */
+    }
+
+    .navbar-toggler-icon {
+        background-color: #ffffff;
+        /* Dark color for toggler icon */
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-collapse {
+        display: none;
+    }
+}

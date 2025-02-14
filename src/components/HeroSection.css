@@ -1,14 +1,16 @@
 .hero {
-    background-image: url('https://via.placeholder.com/1500x800');
+
+    background-image: url('C:\Users\DELL\OneDrive\Desktop\Resturant RS\Book My restro\public\restro.png');
     /* Add your restaurant image */
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
+
 }
 
 .hero-content h1 {
