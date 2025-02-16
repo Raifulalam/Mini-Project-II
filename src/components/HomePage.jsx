@@ -4,8 +4,14 @@ import poster from '../assets/Images/homepage-image.jpg';
 import Header from './Header';
 import Footer from './Footer';
 import Restaurants from './Restaurants';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
+    const navigate = useNavigate();
+    const handleBookNow = () => {
+
+        navigate('/restaurants');
+    }
     return (
         <div className="home-page">
             <Header />
@@ -27,7 +33,7 @@ export default function HomePage() {
                             and time, and confirm your reservation. It's that easy!
                         </p>
                     </div>
-                    <button className="book-now-btn">Book Now</button>
+                    <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
                 </div>
             </div>
             <Restaurants />
