@@ -1,49 +1,68 @@
-/* Menu Container */
 .menu-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Menu Category */
 .menu-category {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .menu-category-title {
-    font-size: 1.25rem;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: 600;
     color: #333;
-    margin-bottom: 10px;
+    border-bottom: 2px solid #ff6f61;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-/* Menu Items */
 .menu-items {
-    list-style-type: none;
-    padding: 0;
+    list-style: none;
+    padding-left: 0;
 }
 
 .menu-item {
     display: flex;
     justify-content: space-between;
+    font-size: 18px;
     padding: 8px 0;
-    font-size: 1rem;
-    color: #333;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #f1f1f1;
+    color: #555;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+    /* Remove border for the last item */
 }
 
 .menu-item-name {
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .menu-item-price {
-    font-size: 1rem;
-    color: #007bff;
+    font-weight: 700;
+    color: #ff6f61;
 }
 
-/* Hover effect for menu items */
 .menu-item:hover {
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-container {
+        padding: 15px;
+    }
+
+    .menu-category-title {
+        font-size: 20px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+    }
 }
