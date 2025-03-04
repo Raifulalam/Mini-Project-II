@@ -71,6 +71,114 @@ export default function Restaurants() {
                 dessert: { "Pie": 130, "Brownie": 120 },
                 lunch: { "Spaghetti": 180, "Sandwich": 90 }
             }
+        },
+        {
+            id: 2,
+            name: 'Restaurant 2',
+            location: 'GLA Univesity, Mathua ',
+            image: Image2,
+            tables: 12,
+            price: "150",
+            specification: { outdoor: true, indoor: false },
+            reserver: "No",
+            vacant: "7",
+            reviews: [],
+            timeslots: [
+                { table: 1, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 1, time: '7:00 PM - 9:00 PM', available: false },
+                { table: 2, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 2, time: '7:00 PM - 9:00 PM', available: true },
+                { table: 3, time: '1:00 PM - 3:00 PM', available: false },
+                { table: 3, time: '7:00 PM - 9:00 PM', available: true },
+            ],
+            menu: {
+                burgers: { "Chicken Burger": 120, "Fish Burger": 140 },
+                pizza: { "Vegetable Pizza": 200, "BBQ Chicken": 250 },
+                drinks: { "Soft Drink": 60, "Water": 50 },
+                dessert: { "Pie": 130, "Brownie": 120 },
+                lunch: { "Spaghetti": 180, "Sandwich": 90 }
+            }
+        },
+        {
+            id: 2,
+            name: 'Restaurant 2',
+            location: 'GLA Univesity, Mathua ',
+            image: Image2,
+            tables: 12,
+            price: "150",
+            specification: { outdoor: true, indoor: false },
+            reserver: "No",
+            vacant: "7",
+            reviews: [],
+            timeslots: [
+                { table: 1, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 1, time: '7:00 PM - 9:00 PM', available: false },
+                { table: 2, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 2, time: '7:00 PM - 9:00 PM', available: true },
+                { table: 3, time: '1:00 PM - 3:00 PM', available: false },
+                { table: 3, time: '7:00 PM - 9:00 PM', available: true },
+            ],
+            menu: {
+                burgers: { "Chicken Burger": 120, "Fish Burger": 140 },
+                pizza: { "Vegetable Pizza": 200, "BBQ Chicken": 250 },
+                drinks: { "Soft Drink": 60, "Water": 50 },
+                dessert: { "Pie": 130, "Brownie": 120 },
+                lunch: { "Spaghetti": 180, "Sandwich": 90 }
+            }
+        },
+        {
+            id: 2,
+            name: 'Restaurant 2',
+            location: 'GLA Univesity, Mathua ',
+            image: Image2,
+            tables: 12,
+            price: "150",
+            specification: { outdoor: true, indoor: false },
+            reserver: "No",
+            vacant: "7",
+            reviews: [],
+            timeslots: [
+                { table: 1, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 1, time: '7:00 PM - 9:00 PM', available: false },
+                { table: 2, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 2, time: '7:00 PM - 9:00 PM', available: true },
+                { table: 3, time: '1:00 PM - 3:00 PM', available: false },
+                { table: 3, time: '7:00 PM - 9:00 PM', available: true },
+            ],
+            menu: {
+                burgers: { "Chicken Burger": 120, "Fish Burger": 140 },
+                pizza: { "Vegetable Pizza": 200, "BBQ Chicken": 250 },
+                drinks: { "Soft Drink": 60, "Water": 50 },
+                dessert: { "Pie": 130, "Brownie": 120 },
+                lunch: { "Spaghetti": 180, "Sandwich": 90 }
+            }
+        },
+        {
+            id: 2,
+            name: 'Restaurant 2',
+            location: 'GLA Univesity, Mathua ',
+            image: Image2,
+            tables: 12,
+            price: "150",
+            specification: { outdoor: true, indoor: false },
+            reserver: "No",
+            vacant: "7",
+            reviews: [],
+            timeslots: [
+                { table: 1, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 1, time: '7:00 PM - 9:00 PM', available: false },
+                { table: 2, time: '1:00 PM - 3:00 PM', available: true },
+                { table: 2, time: '7:00 PM - 9:00 PM', available: true },
+                { table: 3, time: '1:00 PM - 3:00 PM', available: false },
+                { table: 3, time: '7:00 PM - 9:00 PM', available: true },
+            ],
+            menu: {
+                burgers: { "Chicken Burger": 120, "Fish Burger": 140 },
+                pizza: { "Vegetable Pizza": 200, "BBQ Chicken": 250 },
+                drinks: { "Soft Drink": 60, "Water": 50 },
+                dessert: { "Pie": 130, "Brownie": 120 },
+                lunch: { "Spaghetti": 180, "Sandwich": 90 }
+            }
         }
     ]);
 
