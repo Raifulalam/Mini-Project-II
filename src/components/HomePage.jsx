@@ -1,27 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './HomePage.css';
-import poster from '../assets/Images/homepage-image.jpg';
 import Header from './Header';
 import Footer from './Footer';
-import Restaurants from './Restaurants';
 import { useNavigate } from 'react-router-dom';
+import './Restaurants.css';
 
 export default function HomePage() {
     const navigate = useNavigate();
-    const handleBookNow = () => {
 
-        navigate('/restaurants');
-    }
+    const [restaurantsData, setRestaurantsData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    // Fetch restaurants data
+    useEffect(() => {
+        const fetchRestaurantData = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/restaurants');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
+                setRestaurantsData(data);
+            } catch (error) {
+                console.error('Error fetching restaurant data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchRestaurantData();  // Fetch data when component mounts
+    }, []);
+
+    const handleBookNow = () => {
+        navigate('/restaurants');  // Navigate to the restaurants page
+    };
+
+    const handleViewMore = () => {
+        navigate('/restaurants', { state: { restaurants: restaurantsData } });  // Pass all restaurants data to the restaurants page
+    };
+
+    const limitedRestaurants = restaurantsData.slice(0, 4);  // Display only the first 4 restaurants initially
+
+    // Handle reservation action (you need to define this function)
+    const handleReservation = (restaurant) => {
+        // Navigate to a reservation page (e.g., passing restaurant data as state)
+        navigate('/reservation', { state: { restaurant } });
+    };
+
     return (
         <div className="home-page">
             <Header />
 
             <div className="home-container">
-
-
                 <div className="right-container">
                     <div className="image-container">
-                        {/* <img src={poster} alt="Restaurant Reservation Illustration" /> */}
+                        {/* Optional: Add a home page illustration image */}
                     </div>
                 </div>
                 <div className="left-container">
@@ -35,8 +68,41 @@ export default function HomePage() {
                     </div>
                     <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
                 </div>
+
+
             </div>
-            <Restaurants />
+            <div><h1>Featured Restaurants:</h1></div>
+            <div className="restaurants-container">
+
+                {loading ? (
+                    <p>Loading...</p>
+                ) : (
+                    // Map over the limited restaurants
+                    limitedRestaurants.map((restaurant) => (
+                        <div key={restaurant._id} className="restaurant-card">
+                            <h3>{restaurant.name}</h3>
+                            <p>{restaurant.location}</p>
+                            <img
+                                src={restaurant.image || '/path/to/default-image.jpg'} // Provide a default image
+                                alt={restaurant.name}
+                                className="restaurant-image"
+                            />
+                            <div className="restaurant-info">
+                                <p><strong>Price Range:</strong> {restaurant.price}</p>
+                                <p><strong>Available Tables:</strong> {restaurant.vacant} / {restaurant.tables}</p>
+                            </div>
+                            {/* Add the "Check Availability" button */}
+                            <button onClick={() => handleReservation(restaurant)}>
+                                Check Availability
+                            </button>
+                        </div>
+                    ))
+                )}
+
+            </div>
+            <button className="view-more-btn" onClick={handleViewMore}>
+                View More
+            </button>
             <Footer />
         </div>
     );
