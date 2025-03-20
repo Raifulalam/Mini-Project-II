@@ -4,7 +4,7 @@ import logo from '../assets/Images/logo.png';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // Fixed setter function name
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const handleMenuClick = () => {
         setIsMenuOpen(!isMenuOpen); // Toggled menu open state
     };
@@ -15,10 +15,7 @@ const Header = () => {
                 <Link className="navbar-brand" to="#">
                     <img src={logo} alt="logo" /> Book My Restro
                 </Link>
-                <button className={`navbar-toggler ${isMenuOpen ? 'open' : ''}`} type="button" onClick={handleMenuClick}>
-                    <span className="navbar-toggler-icon"></span>
 
-                </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -29,22 +26,32 @@ const Header = () => {
                     </form>
                 </div>
             </nav>
-            <nav className={`navbar-nav ${isMenuOpen ? 'open' : ''}`} id="nav-element" aria-hidden={!isMenuOpen}>
-                <ul className="navbar">
-                    <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/menu">Menu</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/restaurants">Reservation</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="#">Contact</Link>
-                    </li>
-                </ul>
-            </nav>
+            <div className="sider">
+                <nav className={`navbar-nav ${isMenuOpen ? 'open' : ''}`} id="nav-element" aria-hidden={!isMenuOpen}>
+                    <ul className="navbar">
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/">Home</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/menu">Menu</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/restaurants">Reservation</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="#">Contact</Link>
+                        </li>
+                    </ul>
+
+                </nav>
+                <button className={`navbar-toggler ${isMenuOpen ? 'open' : ''}`} type="button" onClick={handleMenuClick}>
+
+                    <img className="navbar-toggler-icon" src={`../public/${isMenuOpen ? 'push.png' : 'pull.png'}`} alt="Push/pull" />
+
+
+                </button>
+            </div>
+
         </div>
     );
 };

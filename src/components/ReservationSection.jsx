@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './ReservationSection.css';
-import Menu from './Menu'; // Import the Menu component
 
 
 const ReservationSection = () => {
@@ -30,6 +29,12 @@ const ReservationSection = () => {
     };
 
     const handleSubmitReview = () => {
+        // Validate review
+        if (!userDetails.review || userDetails.rating === 0) {
+            alert("Please provide both a rating and a comment.");
+            return;
+        }
+
         // Create a new review object
         const newReview = {
             rating: userDetails.rating,
@@ -50,12 +55,17 @@ const ReservationSection = () => {
         setSelectedRestaurant(updatedRestaurant); // Update the restaurant state with the new review
         setUserDetails({ name: '', email: '', phone: '', review: '', rating: 0 }); // Clear user details after submitting
 
-        // Optionally, send the review to a backend API here (e.g., using fetch or axios)
-        // e.g., fetch('/api/submit-review', { method: 'POST', body: JSON.stringify(newReview) })
         console.log("Review submitted:", newReview);
     };
 
     const confirmBooking = () => {
+        // Validate form
+        if (!userDetails.name || !userDetails.email || !userDetails.phone) {
+            alert("Please fill in all user details.");
+            return;
+        }
+
+        // Confirm the booking and mark the timeslot as unavailable
         const updatedRestaurants = restaurant.timeslots.map((slot) => {
             if (slot.table === parseInt(selectedTable) && slot.time === selectedTimeslot) {
                 slot.available = false; // Mark this slot as unavailable
@@ -71,7 +81,6 @@ const ReservationSection = () => {
     return (
         <div className="reservation-sections">
             <div className="reservation-container">
-
                 {restaurant ? (
                     <div key={restaurant.id} className="restaurant-back">
                         {/* Restaurant Details Section */}
@@ -86,6 +95,7 @@ const ReservationSection = () => {
                 ) : (
                     <p>Restaurant details not available.</p>
                 )}
+
                 {/* Availability Section */}
                 <div className="availability-section">
                     <h3>Check Availability</h3>
@@ -110,6 +120,7 @@ const ReservationSection = () => {
                             </select>
                         </div>
                     )}
+
                     {/* Booking Section */}
                     <div className="booking-section">
                         {selectedTable && selectedTimeslot && !bookingConfirmed && (
@@ -138,15 +149,9 @@ const ReservationSection = () => {
                     </div>
                 </div>
             </div>
-            <div className="right-section">
 
-                {/* Menu Section */}
-                <div className="menu-section">
-                    <h3>Menu</h3>
-                    <Menu menu={restaurant.menu} />
-                </div>
 
-            </div>
+
             <div className="footer-section">
                 {/* Review Section */}
                 <div className="review-section">
@@ -177,7 +182,6 @@ const ReservationSection = () => {
                     </div>
                     <button className="btn btn-primary" onClick={handleSubmitReview}>Submit Review</button>
                 </div>
-
             </div>
         </div>
     );
