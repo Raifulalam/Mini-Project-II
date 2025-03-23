@@ -1,7 +1,6 @@
 const express = require('express');
 const Router = express.Router();
-const RestaurantSchema = require('../Model/RestaurantsSchema');  // Assuming this is the correct path for your schema
-
+const RestaurantSchema = require('../Model/RestaurantsSchema');
 // GET all restaurants
 Router.get('/restaurants', (req, res, next) => {
     RestaurantSchema.find()  // Fetch all documents from the 'restaurants' collection

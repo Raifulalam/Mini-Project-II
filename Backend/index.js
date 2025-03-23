@@ -7,13 +7,14 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 
 
+
 // Load environment variables from .env file
 dotenv.config();
 
 // MongoDB URI from the environment variables
 const MONGODB_URI = process.env.MONGODB_URI;
 app.use(cors());
-
+app.use(express.json());
 // Connect to MongoDB using Mongoose
 mongoose.connect(MONGODB_URI)
     .then(() => {
@@ -28,7 +29,8 @@ mongoose.connect(MONGODB_URI)
         console.log('Error connecting to MongoDB:', err);
     });
 
-app.use('/api', require('./Routes/Restaurants'))
+app.use('/api', require('./Routes/Restaurants'));
+app.use('/api', require('./Routes/User'));
 // Basic route
 app.get('/', (req, res) => {
     res.send('Successfully started');
