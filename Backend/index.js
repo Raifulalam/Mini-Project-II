@@ -31,6 +31,7 @@ mongoose.connect(MONGODB_URI)
 
 app.use('/api', require('./Routes/Restaurants'));
 app.use('/api', require('./Routes/User'));
+app.use('/api', require('./Routes/Booking'));
 // Basic route
 app.get('/', (req, res) => {
     res.send('Successfully started');

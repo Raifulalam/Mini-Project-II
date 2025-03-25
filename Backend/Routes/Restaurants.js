@@ -5,10 +5,10 @@ const RestaurantSchema = require('../Model/RestaurantsSchema');
 Router.get('/restaurants', (req, res, next) => {
     RestaurantSchema.find()  // Fetch all documents from the 'restaurants' collection
         .then((data) => {
-            res.status(200).json(data); // Send data as JSON response
+            res.status(200).json(data);
         })
         .catch((err) => {
-            console.error(err); // Log error for debugging
+            console.error(err);
             res.status(500).json({ message: 'An error occurred while fetching restaurants' }); // Send error response
         });
 });
