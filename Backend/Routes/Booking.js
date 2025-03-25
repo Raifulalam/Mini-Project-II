@@ -1,22 +1,30 @@
-const express = require('express')
+const express = require('express');
 const Router = express.Router();
-
 const Booking = require('../Model/BookoingSchema');
 
-Router.get('/reservations', (req, res) => {
-    Booking.find().then((data) => {
+// Get all reservations
+Router.get('/reservations', async (req, res) => {
+    try {
+        const data = await Booking.find();
         res.status(200).json(data);
-    }).catch((err) => {
+    } catch (err) {
         res.status(500).json({ message: 'Error fetching data' });
         console.error(err);
-    });
+    }
 });
 
-Router.post('/reservations', (req, res) => {
-    const { name, email, phone, visitdate, timeSlot, guest, restaurant, table, note } = req.body;
+// Create a new reservation
+Router.post('/reservations', async (req, res) => {
+    const { name, email, phone, visitdate, timeSlot, guests, restaurant, table, note, restaurantId } = req.body;
 
-    // Ensure 'visitdate' is properly parsed to a Date object
+    // Ensure visitDate is a valid Date and not in the past
     const parsedVisitDate = new Date(visitdate);
+    if (isNaN(parsedVisitDate)) {
+        return res.status(400).json({ message: 'Invalid visit date' });
+    }
+    if (parsedVisitDate < new Date()) {
+        return res.status(400).json({ message: 'Visit date cannot be in the past' });
+    }
 
     const newBooking = new Booking({
         name,
@@ -24,20 +32,25 @@ Router.post('/reservations', (req, res) => {
         phone,
         visitdate: parsedVisitDate,
         timeSlot,
-        guest,
+        guests,
         restaurant,
         table,
         status: 'Pending', // Default value
-        note
+        note,
+        restaurantId,
     });
 
-    newBooking.save()
-        .then((data) => {
-            res.status(201).json(data);
-        })
-        .catch((err) => {
-            res.status(500).json({ message: 'Error saving data' });
-            console.error(err);
+    try {
+        const data = await newBooking.save();
+        res.status(201).json({
+            message: 'Booking successfully created',
+            bookingId: data._id,  // You can return the booking ID here
+            status: data.status,
         });
+    } catch (err) {
+        console.error('Error saving booking data:', err);
+        res.status(500).json({ message: 'Error saving booking data', error: err.message });
+    }
 });
+
 module.exports = Router;
