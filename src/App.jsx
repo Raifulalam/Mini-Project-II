@@ -9,6 +9,8 @@ import HomePage from './components/HomePage';
 import EsewaPaymentForm from './components/payemts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Restaurants from './components/Restaurants';
+import Login from './components/LoginPage';
+import SignUp from './components/Signup';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/hero" element={<HeroSection />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/features" element={<FeaturesSection />} />
         <Route path="/reservation" element={<ReservationSection />} />
         <Route path="/footer" element={<Footer />} />
