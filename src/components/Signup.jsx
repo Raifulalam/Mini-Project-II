@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import SignupImage from '../assets/Images/Signup.jpg';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,11 +20,30 @@ const SignUp = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle sign-up logic here
-        console.log('User  Data:', formData);
+        if (formData.password === formData.confirmPassword) {
+            fetch("http://localhost:3000/api/createUser", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+
+
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+                .catch(err => console.error(err))
+            navigate('/login');
+        } else {
+            alert('Passwords do not match');
+
+        }
     };
+
 
     return (
         <div className="signup-page">
