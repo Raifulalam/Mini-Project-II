@@ -13,7 +13,10 @@ const HeroSection = () => {
                     <p>Book your table at the best restaurants in town with just a few clicks.</p>
                     <a href="#reservation" className="cta-button">Make a Reservation</a>
                 </div>
+
+
             </section>
+
             <Restaurants />
         </div>
 

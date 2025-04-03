@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import './Restaurants.css';
+import chef1 from '../assets/Images/chef-reading-book.jpg';
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -71,6 +72,7 @@ export default function HomePage() {
 
 
             </div>
+
             <div><h1>Featured Restaurants:</h1></div>
             <div className="restaurants-container">
 
@@ -98,11 +100,61 @@ export default function HomePage() {
                         </div>
                     ))
                 )}
-
+                <button className="view-more-btn" onClick={handleViewMore}>
+                    View More
+                </button>
             </div>
-            <button className="view-more-btn" onClick={handleViewMore}>
-                View More
-            </button>
+
+            <div className="chef-container">
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+                <div className="about-chef">
+                    <img src={chef1} alt="Chef" />
+                    <h2>Chef Name</h2>
+                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
+                    <a href="#" className="chef-link">Read More</a>
+                </div>
+            </div>
             <Footer />
         </div>
     );

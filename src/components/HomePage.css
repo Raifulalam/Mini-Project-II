@@ -122,3 +122,102 @@
         max-width: 100%;
     }
 }
+
+/* General Container for the Chef Cards */
+.chef-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* Flexibly adjust based on screen size */
+    gap: 20px;
+    padding: 30px;
+    justify-items: center;
+}
+
+/* Individual Chef Card */
+.about-chef {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    max-width: 300px;
+    padding: 20px;
+    position: relative;
+}
+
+/* Hover Effect for the Chef Cards */
+.about-chef:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Chef Image */
+.about-chef img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Chef Name */
+.about-chef h2 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Chef Description */
+.about-chef p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* "Read More" Link */
+.chef-link {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect for "Read More" Link */
+.chef-link:hover {
+    color: #0056b3;
+}
+
+/* Responsiveness */
+@media (max-width: 767px) {
+
+    /* Adjust card size and layout for smaller screens */
+    .chef-container {
+        grid-template-columns: 1fr;
+        /* Stack the cards vertically on smaller screens */
+        gap: 15px;
+    }
+
+    .about-chef {
+        padding: 15px;
+    }
+
+    .about-chef img {
+        height: 180px;
+        /* Slightly smaller image height on mobile */
+    }
+
+    .about-chef h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-chef p {
+        font-size: 0.95rem;
+    }
+
+    .chef-link {
+        font-size: 0.95rem;
+    }
+}

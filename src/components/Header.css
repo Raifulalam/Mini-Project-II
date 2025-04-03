@@ -1,73 +1,65 @@
+/* General Header Styles */
 .header {
     display: flex;
     flex-direction: column;
     position: sticky;
-    top: 0px;
+    top: 0;
     width: 100%;
     opacity: 1;
-    z-index: 1111111111111111111111;
-}
-
-
-
-.navbar-toggler-icon {
-
-    background-color: #ced4da;
-
+    z-index: 111111;
+    background-color: #ff9800;
 }
 
 /* Navbar Styles */
-.navbar {
-    display: flex;
-    margin: 8px;
-    justify-content: space-between;
-    padding: 0 10px;
-    list-style: none;
-    text-align: left;
-}
-
 .navbar-top {
     display: flex;
     justify-content: space-between;
-    background-color: #504444;
+
     padding: 8px;
+    align-items: center;
 }
 
-/* Navbar Brand */
 .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1.6rem;
+    font-family: cursive;
+    font-size: 1.7rem;
     font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: color 0.3s ease;
     text-decoration-line: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Navbar Brand Image */
 .navbar-brand img {
     width: 30px;
     height: 30px;
     padding: 4px;
-    border-radius: 40%;
+    border-radius: 50%;
 }
 
-/* Navbar Links */
+/* Navbar Links (Desktop) */
+.navbar {
+    display: flex;
+    margin: 0%;
+
+    justify-content: space-between;
+    text-align: left;
+    padding: 8px 10px;
+    list-style: none;
+
+}
+
 .navbar-nav {
     display: flex;
-    position: absolute;
+    position: sticky;
 
     list-style: none;
-    gap: 20px;
 
+    align-items: center;
 
 }
-
-
 
 /* Navbar Link Styles */
 .navbar-nav .nav-link {
@@ -86,23 +78,6 @@
     text-decoration: underline;
 }
 
-
-
-/* Toggler Button */
-.navbar-toggler {
-    border: none;
-    display: none;
-}
-
-
-
-/* Navbar Collapse */
-.navbar-collapse {
-    display: flex;
-    justify-content: center;
-
-}
-
 /* Search Form */
 .form-inline {
     display: flex;
@@ -116,46 +91,23 @@
     font-size: 1rem;
     margin-right: 10px;
     border: 1px solid #ced4da;
-    transition: border-color 0.3s ease;
 }
 
 
 
-/* Search Button */
-.btn-outline-success {
-    border-radius: 20px;
-    border: 2px solid #28a745;
-    color: #28a745;
-    font-size: 1rem;
-    padding: 8px 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-.btn-outline-success:hover {
-    background-color: #28a745;
-    color: white;
-    border-color: #28a745;
+.navbar-toggler {
+    background-color: #2a2828;
+    display: none;
 }
 
 
-/* Mobile Responsiveness */
+/* Mobile Navigation */
 @media (max-width: 767px) {
-    .navbar-brand {
-        font-size: 1.5rem;
-    }
-
-    .navbar {
-        flex-direction: column;
-        text-decoration: none;
-        list-style: none;
-        color: #ced4da;
-        display: flex;
-        list-style: none;
-    }
-
-
-
     .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        top: 54px;
         transform: translateX(-100%);
         transition: transform 1s ease;
         /* Fixed transition typo */
@@ -172,69 +124,105 @@
     }
 
     .navbar-nav.open {
-        transform: translateX(0);
+        top: 54px;
+        transform: translateX(0%);
         transition: transform 1s ease-in-out;
+        flex-direction: column;
+        transform: translateX(0);
         visibility: visible;
+    }
 
+    .navbar {
+
+        flex-direction: column;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
     }
 
     .navbar-nav .nav-item {
-        margin: 5px 0;
-
-
+        margin: 10px 0;
     }
 
     .form-inline {
-        flex-direction: column;
-        margin-top: 10px;
+        display: none;
     }
 
     .form-control {
-        width: 100%;
+        width: 80%;
         margin-bottom: 10px;
     }
 
     .btn-outline-success {
-        width: 100%;
+        width: 80%;
     }
 
+    /* Toggler Button */
     .navbar-toggler {
-        display: flex;
-        padding: 2px;
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
-        transition: transform 1s ease-in-out;
-        transform: translateX(-100%);
-        transition: transform 1s ease;
-        background-color: transparent;
+        display: block;
+
+
+        padding: 5px;
+    }
+
+    .navbar-toggler hr {
+        margin-top: 5px;
+        width: 20px;
+        margin-bottom: 5px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
 
     }
 
-    .navbar-toggler img {
-        width: 60px;
-        position: fixed;
-        left: 0;
-        transition: transform 1s ease-in-out;
 
 
+    /* Hamburger Icon */
+    .hamburger-icon {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 5px;
+        position: relative;
+        transition: transform 0.3s ease;
     }
 
-    .navbar-toggler.open {
-        transform: translateX(100%);
-        transition: transform 1s ease-in-out;
-        background-color: transparent;
-        left: 196px;
+    .hamburger-icon:before,
+    .hamburger-icon:after {
+        content: 'ok';
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 5px;
         position: absolute;
+        left: 0;
+        transition: transform 0.3s ease;
     }
 
+    .hamburger-icon:before {
+        top: -8px;
+        /* Space between the bars */
+    }
 
+    .hamburger-icon:after {
+        top: 8px;
+        /* Space between the bars */
+    }
 
+    /* Toggler Open Styles (When Menu is Open) */
+    .navbar-toggler.open .hamburger-icon {
+        background-color: transparent;
+    }
 
+    .navbar-toggler.open .hamburger-icon:before {
+        transform: rotate(45deg);
+        /* Rotate the top bar */
+        top: 0;
+    }
 
-
-    /* The navbar-collapse can be hidden initially and shown when needed */
-    .navbar-collapse {
-        display: none;
+    .navbar-toggler.open .hamburger-icon:after {
+        transform: rotate(-45deg);
+        /* Rotate the bottom bar */
+        top: 0;
     }
 }
