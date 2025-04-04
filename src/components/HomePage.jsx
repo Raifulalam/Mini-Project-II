@@ -29,8 +29,10 @@ export default function HomePage() {
             }
         };
 
+
         fetchRestaurantData();  // Fetch data when component mounts
     }, []);
+
 
     const handleBookNow = () => {
         navigate('/restaurants');  // Navigate to the restaurants page

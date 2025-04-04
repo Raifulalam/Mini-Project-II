@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Header.css';
 import logo from '../assets/Images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from './userContext'; // Import UserContext
 
 const Header = () => {
     const navigate = useNavigate();
-    const [isLoggedIn, setLoggedIn] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, setUser } = useContext(UserContext); // Access user state and setUser method from context
 
     const handleMenuClick = () => {
         setIsMenuOpen(!isMenuOpen);  // Toggle the menu open/close state
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('authToken');
-        setLoggedIn(false);
-        navigate('/');  // Navigate to the home page after logout
+        localStorage.removeItem('authToken');  // Clear the auth token from localStorage
+        setUser(null);  // Clear user data from context
+        navigate('/login');  // Navigate to the home page after logout
     };
 
     return (
@@ -40,9 +41,8 @@ const Header = () => {
                 </button>
             </nav>
 
-
             <nav className={`navbar-nav ${isMenuOpen ? 'open' : ''}`} id="nav-element" aria-hidden={!isMenuOpen}>
-                {isLoggedIn ? (
+                {user ? (  // Check if there is a user (logged in)
                     <ul className="navbar">
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home</Link>
@@ -63,16 +63,9 @@ const Header = () => {
                             <Link className="nav-link" to="#">Profile</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#" onClick={handleLogout}>Logout</Link>
+                            <Link className="nav-link" to="/login" onClick={handleLogout}>Logout</Link>
                         </li>
-
-
-
-
-
                     </ul>
-
-
                 ) : (
                     <ul className="navbar">
                         <li className='nav-item'>
@@ -83,12 +76,8 @@ const Header = () => {
                         </li>
                     </ul>
                 )}
-
-
-
             </nav>
         </div>
-
     );
 };
 

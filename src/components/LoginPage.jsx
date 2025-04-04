@@ -29,6 +29,7 @@ const Login = () => {
                     setEmail('');
                     setPassword('');
                     navigate('/');  // Navigate to the home page or dashboard
+
                 } else {
                     alert("Login failed, please check your credentials.");
                 }
