@@ -131,6 +131,7 @@
     gap: 20px;
     padding: 30px;
     justify-items: center;
+
 }
 
 /* Individual Chef Card */
@@ -145,6 +146,7 @@
     max-width: 300px;
     padding: 20px;
     position: relative;
+    background-color: #eceaea;
 }
 
 /* Hover Effect for the Chef Cards */
@@ -155,10 +157,12 @@
 
 /* Chef Image */
 .about-chef img {
-    width: 100%;
-    height: 200px;
+    width: 150;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
+
+    border-radius: 50%;
 }
 
 /* Chef Name */
@@ -206,6 +210,7 @@
 
     .about-chef img {
         height: 180px;
+
         /* Slightly smaller image height on mobile */
     }
 
