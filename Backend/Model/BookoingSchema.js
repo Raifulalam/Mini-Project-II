@@ -14,6 +14,7 @@ const BookingService = new Schema({
     status: { type: String, enum: ['Pending', 'Confirmed', 'Cancelled'], default: 'Pending' },
     note: String,
     guest: { type: Number, required: true, default: 1 },
+    userId: { type: String, required: true },
     created_at: { type: Date, default: Date.now },
 });
 

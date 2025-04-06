@@ -34,9 +34,7 @@ export default function HomePage() {
     }, []);
 
 
-    const handleBookNow = () => {
-        navigate('/restaurants');  // Navigate to the restaurants page
-    };
+
 
     const handleViewMore = () => {
         navigate('/restaurants', { state: { restaurants: restaurantsData } });  // Pass all restaurants data to the restaurants page
@@ -69,7 +67,7 @@ export default function HomePage() {
                             and time, and confirm your reservation. It's that easy!
                         </p>
                     </div>
-                    <button className="book-now-btn" onClick={handleBookNow}>Book Now</button>
+                    <button className="book-now-btn" onClick={handleViewMore}>Book Now</button>
                 </div>
 
 

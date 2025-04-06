@@ -1,6 +1,7 @@
 const express = require('express');
 const Router = express.Router();
 const Booking = require('../Model/BookoingSchema');
+const authorization = require('../authMiddleware')
 
 // Get all reservations
 Router.get('/reservations', async (req, res) => {
@@ -14,7 +15,7 @@ Router.get('/reservations', async (req, res) => {
 });
 
 // Create a new reservation
-Router.post('/reservations', async (req, res) => {
+Router.post('/reservations', authorization, async (req, res) => {
     const { name, email, phone, visitdate, timeSlot, guests, restaurant, table, note, restaurantId } = req.body;
 
     // Ensure visitDate is a valid Date and not in the past
@@ -25,8 +26,16 @@ Router.post('/reservations', async (req, res) => {
     if (parsedVisitDate < new Date()) {
         return res.status(400).json({ message: 'Visit date cannot be in the past' });
     }
+    // Ensure user is logged in
+    if (!req.user) {
+        return res.status(401).json({ message: 'User not authorized to create a booking' });
+    }
+    const user = req.user;
+    // Ensure the restaurant exists
 
+    // Create a new booking
     const newBooking = new Booking({
+        userId: user.id,
         name,
         email,
         phone,
@@ -38,6 +47,7 @@ Router.post('/reservations', async (req, res) => {
         status: 'Pending', // Default value
         note,
         restaurantId,
+
     });
 
     try {

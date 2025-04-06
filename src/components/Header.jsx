@@ -2,21 +2,21 @@ import React, { useState, useContext } from 'react';
 import './Header.css';
 import logo from '../assets/Images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserContext } from './userContext'; // Import UserContext
+import { UserContext } from './userContext';
 
 const Header = () => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user, setUser } = useContext(UserContext); // Access user state and setUser method from context
+    const { user, setUser } = useContext(UserContext);
 
     const handleMenuClick = () => {
-        setIsMenuOpen(!isMenuOpen);  // Toggle the menu open/close state
+        setIsMenuOpen(!isMenuOpen);
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('authToken');  // Clear the auth token from localStorage
-        setUser(null);  // Clear user data from context
-        navigate('/login');  // Navigate to the home page after logout
+        localStorage.removeItem('authToken');
+        setUser(null);
+        navigate('/login');
     };
 
     return (
@@ -25,15 +25,19 @@ const Header = () => {
                 <Link className="navbar-brand" to="/">
                     <img src={logo} alt="logo" /> Book My Restro
                 </Link>
-                <div className="avatar" >
-                    <Link to="/profile"
-                        style={{ display: user ? 'inline-block' : 'none' }}>
-                        <img src="../public/boy.png" alt={user.name} className="avatar" />
-                    </Link>
-                    <span className="badge">Hey {user?.name?.split(" ")[0]}</span>
 
+                <div className="avatar">
+                    {user && (
+                        <Link to={`/profile/${user.id}`}>
+                            <img src={user.avatar || '/boy.png'} alt={user?.name || 'Profile'} className="avatar" />
+                        </Link>
 
+                    )}
+                    <span className="badge">
+                        Hey {user?.name ? user.name.split(" ")[0] : 'Guest'}
+                    </span>
                 </div>
+
                 <button className="navbar-toggler" type="button" onClick={handleMenuClick}>
                     <span className="navbar-toggler-icon">
                         <hr />
@@ -44,10 +48,7 @@ const Header = () => {
             </nav>
 
             <nav className={`navbar-nav ${isMenuOpen ? 'open' : ''}`} id="nav-element" aria-hidden={!isMenuOpen}>
-                {user ? (  // Check if there is a user (logged in)
-
-
-
+                {user ? (
                     <ul className="navbar">
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home</Link>
@@ -64,21 +65,14 @@ const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="#">About Us</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login" onClick={handleLogout}>Logout</Link>
-                        </li>
-
-
 
                     </ul>
-
-
                 ) : (
                     <ul className="navbar">
-                        <li className='nav-item'>
+                        <li className="nav-item">
                             <Link className="nav-link" to="/login">Sign In</Link>
                         </li>
-                        <li className='nav-item'>
+                        <li className="nav-item">
                             <Link className="nav-link" to="/signup">Sign Up</Link>
                         </li>
                     </ul>

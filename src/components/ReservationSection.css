@@ -68,6 +68,8 @@
 .availability-section {
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     padding: 8px;
+    max-height: 65vh;
+    overflow: scroll;
 }
 
 h2,
@@ -172,6 +174,8 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .footer-section h2 {
     font-size: 24px;
     color: #444;
@@ -205,4 +209,22 @@ input:focus {
     outline: none;
     border-color: #ff6f61;
     box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input,
+textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }

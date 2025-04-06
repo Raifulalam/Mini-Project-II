@@ -12,6 +12,7 @@ import Login from './components/LoginPage';
 import SignUp from './components/Signup';
 import { UserProvider } from './components/userContext';
 import Menu from './components/Menu';
+import UserProfile from './components/profile';
 
 
 
@@ -22,7 +23,6 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/features" element={<FeaturesSection />} />
@@ -32,6 +32,8 @@ function App() {
           <Route path='/restaurants' element={<Restaurants />} />
           <Route path="/payment" element={<EsewaPaymentForm />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/profile/:id" element={<UserProfile />} />
+
 
         </Routes>
 
