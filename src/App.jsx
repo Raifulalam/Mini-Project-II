@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FearuresSection';
 import ReservationSection from './components/ReservationSection';
 import Footer from './components/Footer';
@@ -22,7 +21,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/hero" element={<HeroSection />} />
+
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/features" element={<FeaturesSection />} />
