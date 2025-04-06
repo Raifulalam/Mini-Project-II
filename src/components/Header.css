@@ -33,6 +33,7 @@
 }
 
 .navbar-brand img {
+
     width: 30px;
     height: 30px;
     padding: 4px;
@@ -70,6 +71,49 @@
     padding: 8px 15px;
     transition: color 0.3s ease;
     text-decoration: none;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+
+
+    align-items: center;
+
+    height: 40px;
+    border-radius: 50%;
+
+    margin-top: 0px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.avatar span {
+    margin-left: 8px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    color: #ffffff;
+    font-style: oblique;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    font-variant: small-caps;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    text-decoration: underline;
+
+
+
+}
+
+
+.links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+
 }
 
 /* Navbar Link Hover Effect */

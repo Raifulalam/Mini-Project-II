@@ -22,15 +22,17 @@ const Header = () => {
     return (
         <div className="header">
             <nav className="navbar-top">
-                <Link className="navbar-brand" to="#">
+                <Link className="navbar-brand" to="/">
                     <img src={logo} alt="logo" /> Book My Restro
                 </Link>
+                <div className="avatar" >
+                    <Link to="/profile"
+                        style={{ display: user ? 'inline-block' : 'none' }}>
+                        <img src="../public/boy.png" alt={user.name} className="avatar" />
+                    </Link>
+                    <span className="badge">Hey {user?.name?.split(" ")[0]}</span>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form className="form-inline my-2 my-lg-0 d-flex">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+
                 </div>
                 <button className="navbar-toggler" type="button" onClick={handleMenuClick}>
                     <span className="navbar-toggler-icon">
@@ -43,6 +45,9 @@ const Header = () => {
 
             <nav className={`navbar-nav ${isMenuOpen ? 'open' : ''}`} id="nav-element" aria-hidden={!isMenuOpen}>
                 {user ? (  // Check if there is a user (logged in)
+
+
+
                     <ul className="navbar">
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home</Link>
@@ -60,12 +65,14 @@ const Header = () => {
                             <Link className="nav-link" to="#">About Us</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">Profile</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link" to="/login" onClick={handleLogout}>Logout</Link>
                         </li>
+
+
+
                     </ul>
+
+
                 ) : (
                     <ul className="navbar">
                         <li className='nav-item'>

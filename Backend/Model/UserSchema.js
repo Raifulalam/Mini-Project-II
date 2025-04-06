@@ -32,6 +32,12 @@ const UserSchema = new Schema({
         type: Boolean,
         default: true
     },
+    avatar: {
+        type: String,
+        default: 'boy.png'
+
+    },
+
     created_at: {
         type: Date,
         default: Date.now()

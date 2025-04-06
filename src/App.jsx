@@ -11,6 +11,7 @@ import Restaurants from './components/Restaurants';
 import Login from './components/LoginPage';
 import SignUp from './components/Signup';
 import { UserProvider } from './components/userContext';
+import Menu from './components/Menu';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/header" element={<Header />} />
           <Route path='/restaurants' element={<Restaurants />} />
           <Route path="/payment" element={<EsewaPaymentForm />} />
+          <Route path="/menu" element={<Menu />} />
 
         </Routes>
 
