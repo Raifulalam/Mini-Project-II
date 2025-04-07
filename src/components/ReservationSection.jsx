@@ -281,51 +281,57 @@ const ReservationSection = () => {
                     {reviewers && reviewers.length > 0 ? (
                         reviewers.map((review, index) => (
                             <div key={index} className="review-card">
-                                <div className="review-header">
+
+                                <div className="review-date">
                                     <strong>{review.title || 'Anonymous'}</strong>
+                                    <p className='review-date-p'>{new Date(review.created_at).toLocaleString()}</p>
+                                </div>
+                                <div className="review-header">
+                                    <p className="review-comment">{review.comment}</p>
                                     <div className="review-stars">
                                         {Array.from({ length: 5 }, (_, i) => (
                                             <span key={i} className={`star ${i < review.rating ? 'filled' : ''}`}>★</span>
                                         ))}
                                     </div>
+
                                 </div>
-                                <p className="review-comment">{review.comment}</p>
+
                             </div>
                         ))
                     ) : (
                         <p>No reviews yet. Be the first to leave one!</p>
                     )}
 
-                    {/* Review form */}
-                    <div className="review-form">
-                        <h3>Leave a Review</h3>
 
-                        <textarea
-                            name="review"
-                            placeholder="Write your review..."
-                            value={userDetails.review}
-                            onChange={handleUserDetailsChange}
-                            className="review-textarea"
-                        />
-
-                        <div className="review-rating-input">
-                            {[1, 2, 3, 4, 5].map((rating) => (
-                                <span
-                                    key={rating}
-                                    className={`star ${rating <= userDetails.rating ? 'filled' : ''}`}
-                                    onClick={() => setUserDetails({ ...userDetails, rating })}
-                                >
-                                    ★
-                                </span>
-                            ))}
-                        </div>
-
-                        <button className="submit-review-btn" onClick={handleSubmitReview}>
-                            Submit Review
-                        </button>
-                    </div>
                 </div>
+                {/* Review form */}
+                <div className="review-form">
+                    <h3>Leave a Review</h3>
 
+                    <textarea
+                        name="review"
+                        placeholder="Write your review..."
+                        value={userDetails.review}
+                        onChange={handleUserDetailsChange}
+                        className="review-textarea"
+                    />
+
+                    <div className="review-rating-input">
+                        {[1, 2, 3, 4, 5].map((rating) => (
+                            <span
+                                key={rating}
+                                className={`star ${rating <= userDetails.rating ? 'filled' : ''}`}
+                                onClick={() => setUserDetails({ ...userDetails, rating })}
+                            >
+                                ★
+                            </span>
+                        ))}
+                    </div>
+
+                    <button className="submit-review-btn" onClick={handleSubmitReview}>
+                        Submit Review
+                    </button>
+                </div>
             </div>
         </div>
     );
