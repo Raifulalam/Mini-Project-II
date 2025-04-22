@@ -125,11 +125,15 @@
 
 /* General Container for the Chef Cards */
 .chef-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    /* Flexibly adjust based on screen size */
+    overflow: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 10px 80px;
+    scrollbar-width: none;
+
     gap: 20px;
-    padding: 30px;
+
     justify-items: center;
 
 }
@@ -140,7 +144,6 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     transition: transform 0.3s ease-in-out;
     text-align: center;
     max-width: 300px;

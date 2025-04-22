@@ -63,4 +63,23 @@ Router.post('/reservations', authorization, async (req, res) => {
     }
 });
 
+Router.get('/my-booking', authorization, async (req, res) => {
+    try {
+        const bookings = await Booking.find({ userId: req.user.id })
+            .populate('restaurant')
+            .populate('timeSlot')
+            .populate('status')
+            .populate('note')
+            .populate('visitdate');
+
+        res.json(bookings);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Server error while fetching bookings.' });
+    }
+});
+
+
 module.exports = Router;
+
+

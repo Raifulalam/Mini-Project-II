@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const cors = require('cors')
 const bodyParser = require('body-parser');
 
+app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
+
 
 
 // Load environment variables from .env file
@@ -33,6 +36,7 @@ app.use('/api', require('./Routes/Restaurants'));
 app.use('/api', require('./Routes/User'));
 app.use('/api', require('./Routes/Booking'));
 app.use('/api', require('./Routes/Review'));
+app.use('/api', require('./Routes/Payments'))
 // Basic route
 app.get('/', (req, res) => {
     res.send('Successfully started');

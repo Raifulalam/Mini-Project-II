@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './ReservationSection.css';
 import { UserContext } from './userContext';
-
+import './EsewaPaymentForm.css';
 const ReservationSection = () => {
     const location = useLocation();
     const { restaurant } = location.state || {};
@@ -12,12 +12,14 @@ const ReservationSection = () => {
     const [bookingConfirmed, setBookingConfirmed] = useState(false);
     const token = localStorage.getItem('authToken');
     const [reviewers, setReviewers] = useState([]);
+    const [isPaying, setIsPaying] = useState(false);
+    const navigate = useNavigate();
 
     const { user } = useContext(UserContext);
     const [userDetails, setUserDetails] = useState({
-        name: user.name,
-        email: user.email,
-        phone: user.phone,
+        name: user?.name,
+        email: user?.email,
+        phone: user?.phone,
         guest: 1,
         visitdate: '',
         timeSlot: '',
@@ -26,9 +28,9 @@ const ReservationSection = () => {
         note: '',
         review: '',
         rating: 0,
-        userId: user.id,
+        userId: user?.id,
         restaurantId: restaurant._id,
-        title: user.name,
+        title: user?.name,
 
 
     });
@@ -115,30 +117,11 @@ const ReservationSection = () => {
 
         } catch (error) {
             console.error('Error creating booking:', error);
-            alert(`Error creating booking: ${error.message}`);
+            alert(`Please login to Book your table`);
         }
     };
 
-    const resetForm = () => {
-        setSelectedTable('');
-        setSelectedTimeslot('');
-        setUserDetails({
-            name: '',
-            email: '',
-            phone: '',
-            guest: 1,
-            visitdate: '',
-            timeSlot: '',
-            restaurant: '',
-            table: '',
-            note: '',
-            review: '',
-            rating: 0,
-            userId: user.id,
-            restaurantId: '',
-            title: '',
-        });
-    };
+
 
     const handleSubmitReview = async () => {
         if (!userDetails.review || userDetails.rating === 0) {
@@ -165,7 +148,18 @@ const ReservationSection = () => {
             alert(error.message);
         }
     };
-
+    const handlePaymentClick = () => {
+        setIsPaying(true);
+        navigate('/payment', {
+            state: {
+                restaurant: selectedRestaurant,
+                userDetails,
+                selectedTable,
+                selectedTimeslot,
+                amount: selectedRestaurant.price * userDetails.guest,
+            },
+        });
+    };
     return (
         <div className="reservation-sections">
             <div className="reservation-container">
@@ -261,15 +255,20 @@ const ReservationSection = () => {
                                 <textarea id="note" name="note" placeholder="Additional Notes" value={userDetails.note} onChange={handleUserDetailsChange} />
                             </div>
 
-                            <button type="submit">Submit Booking</button>
+                            <button type="submit" >Submit Booking</button>
                         </form>
 
                     )}
 
                     {bookingConfirmed && (
                         <div>
-                            <h3>Your booking is confirmed!</h3>
-                            <p>Your table has been reserved successfully.</p>
+                            <div className="confirmation-box">
+                                <h3>Your booking is confirmed! 🎉</h3>
+                                <p>Your table has been reserved successfully.</p>
+                                <button type="button" onClick={handlePaymentClick} disabled={isPaying}>
+                                    {isPaying ? 'Redirecting...' : 'Pay Now'}
+                                </button>
+                            </div>
                         </div>
                     )}
                 </div>
