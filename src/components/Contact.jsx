@@ -36,9 +36,9 @@ const ContactPage = () => {
             <div className="contact-content">
                 <div className="contact-info">
                     <h2>Our Restaurant</h2>
-                    <p><strong>Address:</strong> 123 Food Street, Kathmandu, Nepal</p>
-                    <p><strong>Phone:</strong> +977-9876543210</p>
-                    <p><strong>Email:</strong> info@restaurantnepal.com</p>
+                    <p><strong>Address:</strong> 123 Food Street Gla University, Mathura, India</p>
+                    <p><strong>Phone:</strong> +91-9876543210</p>
+                    <p><strong>Email:</strong> info@bookmyrestro.com</p>
                     <h3>Opening Hours</h3>
                     <p>Mon - Sun: 10:00 AM - 10:00 PM</p>
                 </div>
@@ -76,7 +76,7 @@ const ContactPage = () => {
                 </div>
             </div>
 
-            <div className="map-section">
+            {/* <div className="map-section">
                 <h2>Find Us Here</h2>
                 <iframe
                     title="Google Map"
@@ -87,7 +87,7 @@ const ContactPage = () => {
                     allowFullScreen=""
                     aria-hidden="false"
                 ></iframe>
-            </div>
+            </div> */}
         </div>
     );
 };

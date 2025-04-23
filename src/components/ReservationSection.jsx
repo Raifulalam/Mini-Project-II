@@ -20,7 +20,7 @@ const ReservationSection = () => {
         name: user?.name,
         email: user?.email,
         phone: user?.phone,
-        guest: 1,
+        guest: '',
         visitdate: '',
         timeSlot: '',
         restaurant: '',

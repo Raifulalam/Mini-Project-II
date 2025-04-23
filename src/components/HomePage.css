@@ -123,109 +123,27 @@
     }
 }
 
-/* General Container for the Chef Cards */
-.chef-container {
-    overflow: scroll;
+
+.app-info {
     display: flex;
-    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
-    margin: 10px 80px;
-    scrollbar-width: none;
-
-    gap: 20px;
-
-    justify-items: center;
+    background: white;
 
 }
 
-/* Individual Chef Card */
-.about-chef {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
-    max-width: 300px;
-    padding: 20px;
-    position: relative;
-    background-color: #eceaea;
-}
-
-/* Hover Effect for the Chef Cards */
-.about-chef:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Chef Image */
-.about-chef img {
-    width: 150;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-
-    border-radius: 50%;
-}
-
-/* Chef Name */
-.about-chef h2 {
-    font-size: 1.5rem;
-    margin-top: 15px;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Chef Description */
-.about-chef p {
-    font-size: 1rem;
-    color: #555;
-    margin: 10px 0;
-}
-
-/* "Read More" Link */
-.chef-link {
-    font-size: 1rem;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-/* Hover Effect for "Read More" Link */
-.chef-link:hover {
-    color: #0056b3;
+.app-info ul {
+    list-style: none;
 }
 
 /* Responsiveness */
 @media (max-width: 767px) {
 
-    /* Adjust card size and layout for smaller screens */
-    .chef-container {
-        grid-template-columns: 1fr;
-        /* Stack the cards vertically on smaller screens */
-        gap: 15px;
+
+
+    .app-info {
+        flex-direction: column;
     }
 
-    .about-chef {
-        padding: 15px;
-    }
 
-    .about-chef img {
-        height: 180px;
-
-        /* Slightly smaller image height on mobile */
-    }
-
-    .about-chef h2 {
-        font-size: 1.3rem;
-    }
-
-    .about-chef p {
-        font-size: 0.95rem;
-    }
-
-    .chef-link {
-        font-size: 0.95rem;
-    }
 }

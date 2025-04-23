@@ -37,6 +37,8 @@ app.use('/api', require('./Routes/User'));
 app.use('/api', require('./Routes/Booking'));
 app.use('/api', require('./Routes/Review'));
 app.use('/api', require('./Routes/Payments'))
+app.use('/api/menu', require('./Routes/Menu'))
+app.use('/api/orders', require('./Routes/Order'))
 // Basic route
 app.get('/', (req, res) => {
     res.send('Successfully started');

@@ -15,6 +15,7 @@ import Menu from './components/Menu';
 import UserProfile from './components/profile';
 import ContactPage from './components/Contact';
 import AboutPage from './components/About';
+import UserBooking from './components/Booking';
 
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
           <Route path="/profile/:id" element={<UserProfile />} />
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/about' element={<AboutPage />} />
+          <Route path='/my-booking' element={<UserBooking />} />
+
 
 
 

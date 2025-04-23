@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import './Restaurants.css';
 import chef1 from '../assets/Images/chef-reading-book.jpg';
+import Serverimge from '../assets/Images/Signup.jpg';
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -73,6 +74,7 @@ export default function HomePage() {
 
             </div>
 
+
             <div><h1>Featured Restaurants:</h1></div>
             <div className="restaurants-container">
 
@@ -104,57 +106,28 @@ export default function HomePage() {
                     View More
                 </button>
             </div>
+            <div className="app-info">
+                <section className="about-hero">
+                    <h1>About Our Restaurant</h1>
+                    <p>
+                        Welcome to our reservation system – where delicious moments begin! We blend modern convenience with traditional hospitality to ensure your dining experience is seamless from booking to billing.
+                    </p>
+                    <ul>
+                        <li>✔ Easy and fast online reservations</li>
+                        <li>✔ Reliable payment system with eSewa</li>
+                        <li>✔ Detailed booking history and reminders</li>
+                        <li>✔ Friendly support and personalized experience</li>
+                    </ul>
+                </section>
 
-            <div className="chef-container">
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
-                </div>
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
-                </div>
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
-                </div>
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
-                </div>
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
-                </div>
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
-                </div>
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
-                </div>
-                <div className="about-chef">
-                    <img src={chef1} alt="Chef" />
-                    <h2>Chef Name</h2>
-                    <p>We are passionate about creating exquisite dishes that will captivate your taste buds.</p>
-                    <a href="#" className="chef-link">Read More</a>
+                <div className="signup-image">
+
+
+                    <img src={Serverimge} alt="Serve Image" />
+
                 </div>
             </div>
+
             <Footer />
         </div>
     );
