@@ -60,10 +60,10 @@ const Header = () => {
                             <Link className="nav-link" to="/restaurants">Reservation</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">Contact</Link>
+                            <Link className="nav-link" to="/contact">Contact</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">About Us</Link>
+                            <Link className="nav-link" to="/about">About Us</Link>
                         </li>
 
                     </ul>

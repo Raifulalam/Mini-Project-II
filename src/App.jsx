@@ -13,7 +13,8 @@ import SignUp from './components/Signup';
 import { UserProvider } from './components/userContext';
 import Menu from './components/Menu';
 import UserProfile from './components/profile';
-
+import ContactPage from './components/Contact';
+import AboutPage from './components/About';
 
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
           <Route path="/payment" element={<EsewaPaymentForm />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/profile/:id" element={<UserProfile />} />
+          <Route path='/contact' element={<ContactPage />} />
+          <Route path='/about' element={<AboutPage />} />
+
+
 
 
         </Routes>
