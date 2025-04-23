@@ -25,6 +25,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route   GET /api/orders/user/:userId
+// @desc    Get orders for a specific user
+router.get('/user/:userId', async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const orders = await Order.find({ user: userId }).populate('user').populate('items.itemId');
+        if (orders.length === 0) {
+            return res.status(404).json({ error: 'No orders found for this user' });
+        }
+        res.json(orders);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // @route   GET /api/orders/:id
 // @desc    Get a specific order by ID
 router.get('/:id', async (req, res) => {

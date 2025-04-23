@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from './userContext';
 import axios from 'axios';
@@ -7,9 +7,6 @@ import './UserProfile.css';
 const UserProfile = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
-    const [bookings, setBookings] = useState([]);
-
-
 
     const handleLogout = () => {
         localStorage.removeItem('authToken');
@@ -37,10 +34,12 @@ const UserProfile = () => {
                 <div className="profile-actions">
                     <Link to="/edit-profile" className="btn btn-edit">Edit Profile</Link>
                     <button onClick={handleLogout} className="btn btn-logout">Logout</button>
+
+                    {/* Button to View Orders and Reservations */}
+                    <Link to="/orders" className="btn btn-view-orders">View Orders </Link>
+                    <Link to="/my-booking" className="btn btn-view-orders">View Reservation </Link>
                 </div>
             </section>
-
-
         </div>
     );
 };

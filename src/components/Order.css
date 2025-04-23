@@ -1,0 +1,77 @@
+.orders {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.orders-list {
+    margin-top: 20px;
+}
+
+.order-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.order-restaurant {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.order-status {
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.order-status.pending {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.order-status.confirmed {
+    background-color: #5bc0de;
+    color: white;
+}
+
+.order-status.completed {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.order-status.cancelled {
+    background-color: #d9534f;
+    color: white;
+}
+
+.reservation-details,
+.order-items,
+.order-total,
+.order-date {
+    margin-top: 15px;
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+.order-items ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.order-items li {
+    margin-bottom: 5px;
+}
+
+.order-total p {
+    font-weight: bold;
+}

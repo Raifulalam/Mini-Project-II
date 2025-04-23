@@ -16,6 +16,7 @@ import UserProfile from './components/profile';
 import ContactPage from './components/Contact';
 import AboutPage from './components/About';
 import UserBooking from './components/Booking';
+import Order from './components/Orders';
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/my-booking' element={<UserBooking />} />
+          <Route path='/orders' element={<Order />} />
+
 
 
 
