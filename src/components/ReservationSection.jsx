@@ -49,7 +49,7 @@ const ReservationSection = () => {
     useEffect(() => {
         if (!selectedRestaurant?._id) return; // Prevent fetching if ID is not available
 
-        fetch(`http://localhost:3000/api/reviews/${selectedRestaurant._id}`)
+        fetch(`https://mini-project-ii-6.onrender.com/api/reviews/${selectedRestaurant._id}`)
             .then(res => res.json())
             .then(data => setReviewers(data))
             .catch(error => console.error('Error fetching review data:', error));
@@ -83,7 +83,7 @@ const ReservationSection = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/reservations', {
+            const response = await fetch('https://mini-project-ii-6.onrender.com/api/reservations', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ const ReservationSection = () => {
             return;
         }
         try {
-            const response = await fetch('http://localhost:3000/api/reviews', {
+            const response = await fetch('https://mini-project-ii-6.onrender.com/api/reviews', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

@@ -17,7 +17,7 @@ export default function HomePage() {
     useEffect(() => {
         const fetchRestaurantData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/restaurants');
+                const response = await fetch('https://mini-project-ii-6.onrender.com/api/restaurants');
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }

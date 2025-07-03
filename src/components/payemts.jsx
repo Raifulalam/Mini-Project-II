@@ -22,7 +22,7 @@ const EsewaPaymentForm = () => {
     const [productCode, setProductCode] = useState('EPAYTEST');
     const [productServiceCharge, setProductServiceCharge] = useState(0);
     const [productDeliveryCharge, setProductDeliveryCharge] = useState(0);
-    const [successUrl, setSuccessUrl] = useState('http://localhost:3000/complete-payment');
+    const [successUrl, setSuccessUrl] = useState('https://mini-project-ii-6.onrender.com/complete-payment');
     const [failureUrl, setFailureUrl] = useState('https://developer.esewa.com.np/failure');
     const [signedFieldNames, setSignedFieldNames] = useState('total_amount,transaction_uuid,product_code');
     const [signature, setSignature] = useState('');
@@ -31,7 +31,7 @@ const EsewaPaymentForm = () => {
         // Fetch the signature and signed fields from the backend when component mounts or any of the dependencies change
         const fetchSignature = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/esewa-signature', {
+                const res = await fetch('https://mini-project-ii-6.onrender.com/api/esewa-signature', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

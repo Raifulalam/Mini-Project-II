@@ -25,7 +25,7 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (formData.password === formData.confirmPassword) {
-            fetch("http://localhost:3000/api/createUser", {
+            fetch("https://mini-project-ii-6.onrender.com/api/createUser", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

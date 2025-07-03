@@ -23,7 +23,7 @@ const Order = () => {
                     return;
                 }
 
-                const response = await axios.get(`http://localhost:3000/api/orders/user/${userId}`, {
+                const response = await axios.get(`https://mini-project-ii-6.onrender.com/api/orders/user/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 

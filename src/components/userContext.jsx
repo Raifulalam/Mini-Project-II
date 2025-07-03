@@ -12,7 +12,7 @@ const UserProvider = ({ children }) => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/me', {
+                const response = await fetch('https://mini-project-ii-6.onrender.com/api/me', {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('authToken')}`,  // Use JWT from local storage
                     }

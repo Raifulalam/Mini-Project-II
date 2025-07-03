@@ -19,7 +19,7 @@ const MenuPage = () => {
 
     // Fetch menu data from backend
     useEffect(() => {
-        fetch('http://localhost:3000/api/menu')
+        fetch('https://mini-project-ii-6.onrender.com/api/menu')
             .then(res => res.json())
             .then(data => setMenuItems(data))
             .catch(err => console.error('Error fetching menu:', err));
@@ -62,7 +62,7 @@ const MenuPage = () => {
         };
 
         try {
-            const res = await fetch('http://localhost:3000/api/orders', {
+            const res = await fetch('https://mini-project-ii-6.onrender.com/api/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

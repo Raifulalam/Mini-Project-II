@@ -15,7 +15,7 @@ const Booking = () => {
                     return;
                 }
 
-                const response = await axios.get('http://localhost:3000/api/my-booking', {
+                const response = await axios.get('https://mini-project-ii-6.onrender.com/api/my-booking', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
